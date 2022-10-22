@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, request, url_for, flash, redirect 
+from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
@@ -76,7 +76,9 @@ def delete(id):
     flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('index'))
 
-
+@app.route('/About/')
+def about():
+    return render_template('about.html')
 
 if __name__ == "__main__":
     app.run()
